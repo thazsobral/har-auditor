@@ -1,0 +1,332 @@
+/**
+ * Generates a comprehensive, realistic sample HAR dataset for security
+ * auditing and forensic network investigation.
+ */
+
+export function generateSampleHarJson(): string {
+  const now = new Date();
+  const startTime = new Date(now.getTime() - 15000).toISOString();
+
+  const sample = {
+    log: {
+      version: '1.2',
+      creator: {
+        name: 'HAR Investigator Forensic Suite',
+        version: '2.4.0',
+      },
+      browser: {
+        name: 'Chrome Headless Security Runner',
+        version: '124.0.6367.60',
+      },
+      pages: [
+        {
+          startedDateTime: startTime,
+          id: 'page_1',
+          title: 'Portal de Pagamento e Autenticação - Checkout Seguro',
+          pageTimings: {
+            onContentLoad: 340,
+            onLoad: 890,
+          },
+        },
+      ],
+      entries: [
+        {
+          startedDateTime: new Date(now.getTime() - 14500).toISOString(),
+          time: 215,
+          request: {
+            method: 'GET',
+            url: 'http://api.insecure-gateway.internal/v1/auth/session?token=eyJhGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c3JfODkzNCIsImlzQWRtaW4iOnRydWV9.9XwS',
+            httpVersion: 'HTTP/1.1',
+            headers: [
+              { name: 'Host', value: 'api.insecure-gateway.internal' },
+              { name: 'User-Agent', value: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' },
+              { name: 'Accept', value: 'application/json' },
+            ],
+            queryString: [
+              {
+                name: 'token',
+                value: 'eyJhGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJ1c3JfODkzNCIsImlzQWRtaW4iOnRydWV9.9XwS',
+              },
+            ],
+            cookies: [],
+            headersSize: 245,
+            bodySize: 0,
+          },
+          response: {
+            status: 200,
+            statusText: 'OK',
+            httpVersion: 'HTTP/1.1',
+            headers: [
+              { name: 'Content-Type', value: 'application/json; charset=utf-8' },
+              { name: 'Access-Control-Allow-Origin', value: '*' },
+              { name: 'Server', value: 'nginx/1.18.0 (Ubuntu)' },
+            ],
+            cookies: [
+              {
+                name: 'session_auth',
+                value: 'sess_998432a4e9b',
+                httpOnly: false,
+                secure: false,
+                sameSite: 'None',
+              },
+            ],
+            content: {
+              size: 412,
+              mimeType: 'application/json',
+              text: '{"authenticated":true,"userId":"usr_8934","role":"admin","permissions":["read","write","exec"]}',
+            },
+            redirectURL: '',
+            headersSize: 189,
+            bodySize: 412,
+          },
+          timings: { blocked: 1.2, dns: 12.4, connect: 30.1, send: 1.5, wait: 165.2, receive: 4.6 },
+          serverIPAddress: '192.168.10.45',
+        },
+        {
+          startedDateTime: new Date(now.getTime() - 14000).toISOString(),
+          time: 340,
+          request: {
+            method: 'GET',
+            url: 'https://app.corp-enterprise.com/checkout/summary',
+            httpVersion: 'HTTP/2.0',
+            headers: [
+              { name: 'Host', value: 'app.corp-enterprise.com' },
+              { name: 'Authorization', value: 'Bearer sec_live_99d0e2f9ab01' },
+              { name: 'User-Agent', value: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)' },
+              { name: 'Accept', value: 'text/html,application/xhtml+xml' },
+            ],
+            queryString: [],
+            cookies: [
+              {
+                name: '_ga',
+                value: 'GA1.2.1489032.17000',
+                httpOnly: false,
+                secure: true,
+                sameSite: 'Lax',
+              },
+            ],
+            headersSize: 310,
+            bodySize: 0,
+          },
+          response: {
+            status: 200,
+            statusText: 'OK',
+            httpVersion: 'HTTP/2.0',
+            headers: [
+              { name: 'content-type', value: 'text/html; charset=UTF-8' },
+              { name: 'strict-transport-security', value: 'max-age=31536000; includeSubDomains' },
+              { name: 'x-content-type-options', value: 'nosniff' },
+            ],
+            cookies: [],
+            content: {
+              size: 14850,
+              mimeType: 'text/html',
+              text: '<!DOCTYPE html><html><head><title>Checkout</title></head><body><h1>Pagamento</h1></body></html>',
+            },
+            redirectURL: '',
+            headersSize: 220,
+            bodySize: 14850,
+          },
+          timings: { blocked: 2.1, dns: 0, connect: 0, send: 2.0, wait: 310.5, receive: 25.4 },
+          serverIPAddress: '104.21.56.12',
+        },
+        {
+          startedDateTime: new Date(now.getTime() - 13500).toISOString(),
+          time: 512,
+          request: {
+            method: 'POST',
+            url: 'https://analytics-tracker.3rdparty-cdn.net/collect?apiKey=pk_live_883a99e',
+            httpVersion: 'HTTP/1.1',
+            headers: [
+              { name: 'Host', value: 'analytics-tracker.3rdparty-cdn.net' },
+              { name: 'Content-Type', value: 'application/json' },
+            ],
+            queryString: [
+              { name: 'apiKey', value: 'pk_live_883a99e' },
+            ],
+            postData: {
+              mimeType: 'application/json',
+              text: '{"events":[{"type":"pageview","url":"https://app.corp-enterprise.com/checkout/summary"}]}',
+            },
+            cookies: [],
+            headersSize: 198,
+            bodySize: 94,
+          },
+          response: {
+            status: 204,
+            statusText: 'No Content',
+            httpVersion: 'HTTP/1.1',
+            headers: [
+              { name: 'Access-Control-Allow-Origin', value: '*' },
+              { name: 'Date', value: now.toUTCString() },
+            ],
+            cookies: [],
+            content: {
+              size: 0,
+              mimeType: 'text/plain',
+              text: '',
+            },
+            redirectURL: '',
+            headersSize: 110,
+            bodySize: 0,
+          },
+          timings: { blocked: 0.5, dns: 45.2, connect: 78.1, ssl: 65.0, send: 1.1, wait: 310.0, receive: 12.1 },
+          serverIPAddress: '172.67.140.2',
+        },
+        {
+          startedDateTime: new Date(now.getTime() - 12800).toISOString(),
+          time: 140,
+          request: {
+            method: 'GET',
+            url: 'https://app.corp-enterprise.com/static/js/bundle.main.min.js',
+            httpVersion: 'HTTP/2.0',
+            headers: [
+              { name: 'Host', value: 'app.corp-enterprise.com' },
+              { name: 'Accept', value: '*/*' },
+            ],
+            queryString: [],
+            cookies: [],
+            headersSize: 150,
+            bodySize: 0,
+          },
+          response: {
+            status: 200,
+            statusText: 'OK',
+            httpVersion: 'HTTP/2.0',
+            headers: [
+              { name: 'content-type', value: 'application/javascript; charset=utf-8' },
+              { name: 'cache-control', value: 'public, max-age=31536000, immutable' },
+              { name: 'x-content-type-options', value: 'nosniff' },
+            ],
+            cookies: [],
+            content: {
+              size: 89450,
+              mimeType: 'application/javascript',
+              text: 'console.log("App loaded");',
+            },
+            redirectURL: '',
+            headersSize: 180,
+            bodySize: 89450,
+          },
+          timings: { blocked: 0.8, dns: 0, connect: 0, send: 0.5, wait: 45.2, receive: 93.5 },
+          serverIPAddress: '104.21.56.12',
+        },
+        {
+          startedDateTime: new Date(now.getTime() - 12000).toISOString(),
+          time: 680,
+          request: {
+            method: 'POST',
+            url: 'https://app.corp-enterprise.com/api/v2/payments/charge',
+            httpVersion: 'HTTP/2.0',
+            headers: [
+              { name: 'Host', value: 'app.corp-enterprise.com' },
+              { name: 'Authorization', value: 'Bearer sec_live_99d0e2f9ab01' },
+              { name: 'Content-Type', value: 'application/json' },
+            ],
+            queryString: [],
+            postData: {
+              mimeType: 'application/json',
+              text: '{"amount":49900,"currency":"BRL","card_last4":"4242"}',
+            },
+            cookies: [],
+            headersSize: 280,
+            bodySize: 56,
+          },
+          response: {
+            status: 502,
+            statusText: 'Bad Gateway',
+            httpVersion: 'HTTP/2.0',
+            headers: [
+              { name: 'content-type', value: 'application/json' },
+              { name: 'server', value: 'cloudflare' },
+            ],
+            cookies: [],
+            content: {
+              size: 84,
+              mimeType: 'application/json',
+              text: '{"error":"Upstream payment gateway timeout","code":"GATEWAY_TIMEOUT"}',
+            },
+            redirectURL: '',
+            headersSize: 160,
+            bodySize: 84,
+          },
+          timings: { blocked: 1.0, dns: 0, connect: 0, send: 1.2, wait: 672.4, receive: 5.4 },
+          serverIPAddress: '104.21.56.12',
+        },
+        {
+          startedDateTime: new Date(now.getTime() - 11000).toISOString(),
+          time: 95,
+          request: {
+            method: 'GET',
+            url: 'https://app.corp-enterprise.com/static/images/logo-vault.svg',
+            httpVersion: 'HTTP/2.0',
+            headers: [{ name: 'Host', value: 'app.corp-enterprise.com' }],
+            queryString: [],
+            cookies: [],
+            headersSize: 140,
+            bodySize: 0,
+          },
+          response: {
+            status: 304,
+            statusText: 'Not Modified',
+            httpVersion: 'HTTP/2.0',
+            headers: [
+              { name: 'cache-control', value: 'public, max-age=86400' },
+              { name: 'etag', value: '"d8924b1a"' },
+            ],
+            cookies: [],
+            content: {
+              size: 0,
+              mimeType: 'image/svg+xml',
+              text: '',
+            },
+            redirectURL: '',
+            headersSize: 120,
+            bodySize: 0,
+          },
+          timings: { blocked: 0.4, dns: 0, connect: 0, send: 0.4, wait: 92.1, receive: 2.1 },
+          serverIPAddress: '104.21.56.12',
+        },
+        {
+          startedDateTime: new Date(now.getTime() - 10500).toISOString(),
+          time: 154,
+          request: {
+            method: 'GET',
+            url: 'https://app.corp-enterprise.com/api/v2/users/me/security-keys',
+            httpVersion: 'HTTP/2.0',
+            headers: [
+              { name: 'Host', value: 'app.corp-enterprise.com' },
+              { name: 'Accept', value: 'application/json' },
+            ],
+            queryString: [],
+            cookies: [],
+            headersSize: 220,
+            bodySize: 0,
+          },
+          response: {
+            status: 401,
+            statusText: 'Unauthorized',
+            httpVersion: 'HTTP/2.0',
+            headers: [
+              { name: 'content-type', value: 'application/json' },
+              { name: 'www-authenticate', value: 'Bearer realm="api"' },
+            ],
+            cookies: [],
+            content: {
+              size: 58,
+              mimeType: 'application/json',
+              text: '{"error":"Missing or expired Authorization Bearer header"}',
+            },
+            redirectURL: '',
+            headersSize: 140,
+            bodySize: 58,
+          },
+          timings: { blocked: 0.6, dns: 0, connect: 0, send: 0.8, wait: 148.2, receive: 4.4 },
+          serverIPAddress: '104.21.56.12',
+        },
+      ],
+    },
+  };
+
+  return JSON.stringify(sample, null, 2);
+}

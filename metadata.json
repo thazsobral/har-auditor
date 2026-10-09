@@ -1,0 +1,6 @@
+{
+  "name": "HAR Security & Network Auditor Toolbox",
+  "description": "Toolbox client-side de alta performance para inspeção, auditoria de segurança e diagnóstico detalhado de arquivos HTTP Archive (.HAR).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
